@@ -1,0 +1,53 @@
+
+.min_width{
+    max-width: 1200px;
+}
+
+.bg_dark{
+    background-color: #212529;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+section{
+    height: 100vh;
+    width: auto;
+    position: relative;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f1f1f1;
+    flex-direction: column;
+    height: 100vh;
+}
+.box h1 {
+    font-size: 70px;
+}
+
+.box p {
+    font-size: 30px;
+}
+
+footer{
+    width: auto;
+    height: 20%;
+}
+
+.btn span{
+    margin-right: 2px;
+    padding-right: 2px;
+}
+
+.btn{
+    padding: 5px;
+}
+
+
+.gg{
+    border: 2px solid red;
+}
