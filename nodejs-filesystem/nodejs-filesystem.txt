@@ -1,0 +1,11 @@
+
+To get current date and time
+https://servernodejs007.herokuapp.com/time
+
+
+retrieve all the text file in particular
+https://servernodejs007.herokuapp.com/allFile
+
+
+github url 
+https://github.com/avinashboy/task-challenge/tree/main/nodejs-filesystem

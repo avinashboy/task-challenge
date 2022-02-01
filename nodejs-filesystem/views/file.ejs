@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container mt-3" id="root">
+        <h1 class="header mt-4">All the file </h1>
+    </div>
+    <script>
+        let fileList = JSON.parse("<%= data %>".replace(/&#34;/g, '"'))
+        
+        for (const prop in fileList) {
+            let fileName =  prop
+            let fileType =  fileList[prop].fileType
+            let insideData =  fileList[prop].infoInside
+            const name = document.createElement("span")
+            name.setAttribute("class", "fs-3 text-capitalize d-block")
+            name.innerText = fileName
+            const type = document.createElement("span")
+            type.setAttribute("class", "fs-5 text-capitalize d-block")
+            type.innerText = fileType
+            const data = document.createElement("span")
+            data.setAttribute("class", "fs-4 text-capitalize d-block")
+            data.innerText = insideData
+            const div = document.createElement("div")
+            div.setAttribute("class", "mt-5")
+            div.append(name,type,data)
+            document.getElementById("root").appendChild(div)
+        }
+        
+
+    </script>
+</body>
+</html>
