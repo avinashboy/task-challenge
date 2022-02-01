@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css' />
+    <link rel="stylesheet" href="style.css">
+    <title>Survey Form</title>
+</head>
+
+<body>
+    <div class="container mt-5 mb-5">
+        <form action="">
+            <div class="row">
+                <!-- Name -->
+                <div class="col-md-8 col-sm-8">
+                    <label for="name"> <span class="boldMe">Name</span> <span class="markMe">*</span></label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="">
+                            <div class="form-text">First</div>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="">
+                            <div class="form-text">Last</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-8 col-sm-8 mt-3">
+                    <label for="email"> <span class="boldMe">Email</span> <span class="markMe">*</span></label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+
+                <!-- Star -->
+                <div class="col-md-8 col-sm-8 mt-3">
+                    <label for="email"> <span class="boldMe">Your Experience</span> <span
+                            class="markMe">*</span></label>
+                    <p><span class="starMe"><i class="fas fa-star"></i></span><span class="starMe"><i
+                                class="fas fa-star"></i></span><span class="starMe"><i
+                                class="fas fa-star"></i></span><span class="starMe"><i
+                                class="fas fa-star"></i></span><span class="starMe"><i class="fas fa-star"></i></span>
+                    </p>
+                    <div class="form-text">Overalll, how would you rate you experience with us?</div>
+                </div>
+
+                <!-- table -->
+                <div class="col-md-12 col-sm-12 mt-3">
+                    <label> <span class="boldMe">How satisfied are you with</span> <span class="markMe">*</span></label>
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th colspan="2"></th>
+                                <th scope="col">Very Unsatisfied</th>
+                                <th scope="col">Unsatisfied</th>
+                                <th scope="col">Neutral</th>
+                                <th scope="col">satisfied</th>
+                                <th scope="col">Very satisfied</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th colspan="2">Purchase</th>
+                                <td><input type="radio" name="puchase"></td>
+                                <td><input type="radio" name="puchase"></td>
+                                <td><input type="radio" name="puchase"></td>
+                                <td><input type="radio" name="puchase"></td>
+                                <td><input type="radio" name="puchase"></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Service</th>
+                                <td><input type="radio" name="puchase1"></td>
+                                <td><input type="radio" name="puchase1"></td>
+                                <td><input type="radio" name="puchase1"></td>
+                                <td><input type="radio" name="puchase1"></td>
+                                <td><input type="radio" name="puchase1"></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Company Overall</th>
+                                <td><input type="radio" name="puchase2"></td>
+                                <td><input type="radio" name="puchase2"></td>
+                                <td><input type="radio" name="puchase2"></td>
+                                <td><input type="radio" name="puchase2"></td>
+                                <td><input type="radio" name="puchase2"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- table 2 -->
+                <div class="col-md-12 col-sm-12 mt-3">
+                    <label> <span class="boldMe">How likely are you to</span> <span class="markMe">*</span></label>
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th colspan="2"></th>
+                                <th scope="col">Very Unsatisfied</th>
+                                <th scope="col">Unsatisfied</th>
+                                <th scope="col">Neutral</th>
+                                <th scope="col">satisfied</th>
+                                <th scope="col">Very satisfied</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th colspan="2">Buy from us again</th>
+                                <td><input type="radio" name="puchase3"></td>
+                                <td><input type="radio" name="puchase3"></td>
+                                <td><input type="radio" name="puchase3"></td>
+                                <td><input type="radio" name="puchase3"></td>
+                                <td><input type="radio" name="puchase3"></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Becommend our product to others</th>
+                                <td><input type="radio" name="puchase4"></td>
+                                <td><input type="radio" name="puchase4"></td>
+                                <td><input type="radio" name="puchase4"></td>
+                                <td><input type="radio" name="puchase4"></td>
+                                <td><input type="radio" name="puchase4"></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Recommend our company to others </th>
+                                <td><input type="radio" name="puchase5"></td>
+                                <td><input type="radio" name="puchase5"></td>
+                                <td><input type="radio" name="puchase5"></td>
+                                <td><input type="radio" name="puchase5"></td>
+                                <td><input type="radio" name="puchase5"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- textarea -->
+                <div class="col-md-12 col-sm-12 mt-3">
+                    <label> <span class="boldMe">Additional comments or suggestions</span</label> <textarea
+                                class="form-control textMe" id="floatingTextarea" rows="4" cols="170"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-md-12 col-sm-12 mt-3">
+                    <input type="submit" value="Submit" class="submitMe">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>

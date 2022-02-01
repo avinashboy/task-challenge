@@ -1,0 +1,38 @@
+.boldMe {
+    font-weight: bold;
+}
+
+.markMe {
+    color: red;
+}
+
+.starMe {
+    color: #EEAC83;
+    margin-right: 5px;
+}
+
+table td,
+table th {
+    text-align: center;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border-style: none !important;
+}
+
+tbody {
+    border-radius: 5px;
+}
+
+table tr>th {
+    font-weight: lighter;
+}
+
+.submitMe {
+    padding: 10px;
+}

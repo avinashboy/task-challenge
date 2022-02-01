@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Task</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Task</h1>
+      <div class="row" id="root"></div>
+    </div>
+    <script>
+      let listTask = ["survey-form","banner","laud page","dom manipulation with forms","pagination", "we-promise-task-1", "we-promise-task-2", "we-promise-task-3"]
+      console.log('listTask:', listTask)
+      const root = document.getElementById('root')
+      listTask.forEach((value)=>{
+        const div = document.createElement('div')
+        div.setAttribute('class', "col-md-4 mb-4")
+        div.innerHTML = `
+        <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <a href="./${value}/index.html" class="card-link"
+            >${value}</a
+          >
+        </div>
+      </div>
+        `
+        root.appendChild(div)
+      })
+    </script>
+  </body>
+</html>
