@@ -1,0 +1,128 @@
+:root {
+  --red: #e7605c;
+  --blue: #00b2e2;
+  --yellow: #ff9e1b;
+  --white: #e3eef4;
+  --dark: #303e47;
+}
+
+body {
+  background-color: var(--dark);
+}
+
+.bg_yellow {
+  background-color: var(--yellow);
+}
+
+.bg_red {
+  background-color: var(--red);
+}
+
+.bg_blues {
+  background-color: var(--blue);
+}
+
+.c_yellow {
+  color: var(--yellow);
+}
+
+.c_red {
+  color: var(--red);
+}
+
+.c_dark {
+  color: var(--dark);
+}
+
+.c_blues {
+  color: var(--blue);
+}
+
+.cwhite {
+  color: var(--white);
+}
+
+.white {
+  color: var(--white);
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.lead {
+  color: var(--red);
+}
+
+.icon {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.box2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 5px;
+}
+
+.small {
+  font-size: 20px;
+  width: 100px;
+}
+
+.bold {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  text-decoration: underline;
+}
+
+.bg_blue {
+  background-color: var(--blue);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  z-index: -10;
+  margin-right: 10px;
+}
+
+.bg_dark {
+  background-color: var(--dark);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  position: relative;
+  z-index: -10;
+  margin-right: 10px;
+}
+
+.bg_white {
+  background-color: var(--white);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  z-index: -10;
+  margin-right: 10px;
+}
+
+.pos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rel {
+  position: relative;
+}
