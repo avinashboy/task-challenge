@@ -1,3 +1,5 @@
+### [Live stie](https://smooth-hotel.netlify.app/)
+
 ### Admin
 
 user: admin@gmail.com
