@@ -10,24 +10,24 @@ const fromsRoute = require("./routes/fromsRoute");
 const cors = require("cors");
 const helmet = require("helmet");
 
-// const whitelist = ["http://localhost:4000", "http://localhost:5000"];
-// var corsOptions = {
-//     origin: function (origin, callback) {
-//       console.log('origin:', origin)
-//       if (whitelist.indexOf(origin) !== -1 ) {
-//         callback(null, true)
-//       } else {
-//         callback(new Error('Not allowed by CORS'))
-//       }
-//     }
-//   }
+const whitelist = ["http://localhost:4000", "http://localhost:5000", "https://smooth-hotel.netlify.app"];
+var corsOptions = {
+    origin: function (origin, callback) {
+      console.log('origin:', origin)
+      if (whitelist.indexOf(origin) !== -1 ) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
+  }
 
 // port
 const port = process.env.PORT || 5000;
 
 // App usage
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(helmet());
 
 // Middleware
