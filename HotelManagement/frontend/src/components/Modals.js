@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Smooth } from "../context";
 
 function Modals({ from, setCount }) {
+  const {data} = useContext(Smooth);
 
   const [show, setShow] = useState(false);
 
@@ -19,7 +21,7 @@ function Modals({ from, setCount }) {
   const handleSubmit = async () => {
     if (type === "") return false;
     await axios
-      .put(`/api/froms/updateUserStatus/${from._id}`, { type })
+      .put(`${data.appUrl}/api/froms/updateUserStatus/${from._id}`, { type })
       .then((res) => {
         Swal.fire({
           title: "Success",

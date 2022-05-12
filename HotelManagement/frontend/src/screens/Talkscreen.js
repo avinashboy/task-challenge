@@ -74,7 +74,7 @@ function Talkscreen() {
   const handleSubmit = async (e) => {
 
     await axios
-      .post(`/api/froms/addfroms`, roomComplaints)
+      .post(`${data.appUrl}/api/froms/addfroms`, roomComplaints)
       .then((res) => {
 
         Swal.fire("Your complaint has been register", "success");
@@ -98,7 +98,7 @@ function Talkscreen() {
     const getData = async () => {
       setloading(true);
       try {
-        const info = await axios.post("/api/froms/getfromsstatusbyuserid", {
+        const info = await axios.post(`${data.appUrl}/api/froms/getfromsstatusbyuserid`, {
           userid: data.metaInfo?._id,
         });
         setloading(false);
@@ -110,7 +110,7 @@ function Talkscreen() {
 
     const getBookInfoForUser = async () => {
       try {
-        const info = await axios.post("/api/bookings/getbookingsbyuserid", {
+        const info = await axios.post(`${data.appUrl}/api/bookings/getbookingsbyuserid`, {
           userid: data.metaInfo?._id,
         });
         setRoomDetails(info.data);

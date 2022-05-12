@@ -48,7 +48,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mren-hotel.herokuapp.com",
   "devDependencies": {
     "less": "^4.1.2",
     "less-loader": "^10.2.0"

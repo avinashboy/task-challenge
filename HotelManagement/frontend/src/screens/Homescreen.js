@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Room from "../components/Room";
 import axios from "axios";
 import "antd/dist/antd.css";
@@ -7,9 +7,13 @@ import Error from "../components/Error";
 import moment from "moment";
 import { DatePicker, message } from "antd";
 import AuthChecking from "../common/AuthCheck";
+import { Smooth } from "../context";
+
 const { RangePicker } = DatePicker;
 
+
 function Homescreen() {
+  const {data} = useContext(Smooth);
   const [rooms, setrooms] = useState([]);
 
   const [loading, setloading] = useState();
@@ -28,7 +32,7 @@ function Homescreen() {
   useEffect(() => {
     const getData = () => {
       axios
-        .get("/api/rooms/getallrooms")
+        .get(`${data.appUrl}/api/rooms/getallrooms`)
         .then((res) => {
           setloading(true);
           setrooms(res.data);

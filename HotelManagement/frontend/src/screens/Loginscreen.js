@@ -7,7 +7,7 @@ import { Smooth } from "../context";
 
 
 function Loginscreen() {
-  const { setData } = useContext(Smooth);
+  const { data,setData } = useContext(Smooth);
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -21,10 +21,10 @@ function Loginscreen() {
     };
     try {
       setloading(true);
-      const { data } = await axios.post(`/api/users/login`, user);
+      const gg = await axios.post(`${data.appUrl}/api/users/login`, user);
       setloading(false);
-      localStorage.setItem("currentUser", JSON.stringify(data));
-      setData((prev) => ({ ...prev, metaInfo: data }));
+      localStorage.setItem("currentUser", JSON.stringify(gg.data));
+      setData((prev) => ({ ...prev, metaInfo: gg.data }));
      navigate("/");
     } catch (error) {
       setloading(false);

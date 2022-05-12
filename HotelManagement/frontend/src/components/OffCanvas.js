@@ -6,6 +6,7 @@ import { Smooth } from "../context";
 import Loader from "../components/Loader";
 
 function OffCanvas() {
+  
   const [chooseRoomId, setChooseRoomId] = useState("");
   const [orderRoom, setOrderRoom] = useState([]);
   const [loading, setloading] = useState(false);
@@ -50,7 +51,7 @@ function OffCanvas() {
 
   useEffect(() => {
     const getBookInfoForUser = async () => {
-      const info = await axios.post("/api/bookings/getbookingsbyuserid", {
+      const info = await axios.post(`${data.appUrl}/api/bookings/getbookingsbyuserid`, {
         userid: data.metaInfo?._id,
       });
       setOrderRoom(info.data);
@@ -76,7 +77,7 @@ function OffCanvas() {
     };
     setloading(true);
     await axios
-      .post("/api/foods/foodpayment", foodDetails)
+      .post(`${data.appUrl}/api/foods/foodpayment`, foodDetails)
       .then((res) => {
         Swal.fire("Order", "Your Order has been placed", "success");
         setData((prev) => ({

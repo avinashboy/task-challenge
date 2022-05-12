@@ -57,6 +57,7 @@ function Profilescreen() {
 export default Profilescreen;
 
 export function MyFood(){
+  
   const [loading, setloading] = useState(false);
   const { data } = useContext(Smooth);
   const [count, setCount] = useState(0);
@@ -65,7 +66,7 @@ export function MyFood(){
   useEffect(() => {
     const getData = async () => {
       setloading(true);
-      const gg = await axios.get(`/api/foods/getfoodbookingsbyuserid/${data.metaInfo?._id}`)
+      const gg = await axios.get(`${data.appUrl}/api/foods/getfoodbookingsbyuserid/${data.metaInfo?._id}`)
       setFoodBookings(gg.data)
       setloading(false);
     }
@@ -141,7 +142,7 @@ export function MyBookings() {
     async function fetchData() {
       try {
         setloading(true);
-        const gg = await axios.post("/api/bookings/getbookingsbyuserid", {
+        const gg = await axios.post(`${data.appUrl}/api/bookings/getbookingsbyuserid`, {
           userid: data.metaInfo?._id,
         });
 
@@ -159,7 +160,7 @@ export function MyBookings() {
   async function cancelBooking(bookingid, roomid) {
     try {
       setloading(true);
-      const { data } = await await axios.post("/api/bookings/cancelbooking", {
+      const gg = await axios.post(`${data.appUrl}/api/bookings/cancelbooking`, {
         bookingid,
         roomid,
       });

@@ -53,6 +53,7 @@ function Managerscreen() {
 }
 
 export function Bookings() {
+  const {data} = useContext(Smooth);
   const [bookings, setbookings] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, seterror] = useState();
@@ -60,8 +61,8 @@ export function Bookings() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/bookings/getallbookings");
-        setbookings(data);
+        const gg = await axios.get(`${data.appUrl}/api/bookings/getallbookings`);
+        setbookings(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);
@@ -119,6 +120,7 @@ export function Bookings() {
 }
 
 export function FoodOrder() {
+  const {data} = useContext(Smooth);
   const [foods, setFoods] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, seterror] = useState();
@@ -126,8 +128,8 @@ export function FoodOrder() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/foods/orderfoods");
-        setFoods(data);
+        const gg = await axios.get(`${data.appUrl}/api/foods/orderfoods`);
+        setFoods(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);
@@ -189,6 +191,7 @@ export function FoodOrder() {
 }
 
 export function Foods() {
+  const {data} = useContext(Smooth);
   const [count, setCount] = useState(0);
   const [foods, setFoods] = useState([]);
   const [duplicateFoods, setDuplicateFoods] = useState([]);
@@ -210,7 +213,7 @@ export function Foods() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`/api/foods/deletefood/${id}`)
+      .delete(`${data.appUrl}/api/foods/deletefood/${id}`)
       .then((res) => {
         Swal.fire("Done", "Deleted Successfully", "success");
         setCount((pre) => pre + 1);
@@ -223,9 +226,9 @@ export function Foods() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/foods/getfoods");
-        setFoods(data);
-        setDuplicateFoods(data);
+        const gg = await axios.get(`${data.appUrl}/api/foods/getfoods`);
+        setFoods(gg.data);
+        setDuplicateFoods(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);
@@ -324,6 +327,7 @@ export function Foods() {
 }
 
 export function AddFood() {
+  const {data} = useContext(Smooth);
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState();
@@ -367,7 +371,7 @@ export function AddFood() {
   useEffect(() => {
     const addRommInfo = async () => {
       try {
-        const { data } = await await axios.post("/api/foods/addfood", foodInfo);
+        const gg = await axios.post(`${data.appUrl}/api/foods/addfood`, foodInfo);
         setloading(false);
         Swal.fire("Congrats", "Food Added Successfully", "success");
         setRoomInfo(initialValues);
@@ -472,7 +476,7 @@ export function AddFood() {
 }
 
 export function ComplaintFroms() {
-  
+  const {data} = useContext(Smooth);
   const [count, setCount] = useState(0);
   const [froms, setFroms] = useState([]);
   const [duplicateFroms, setDuplicateFroms] = useState([]);
@@ -495,9 +499,9 @@ export function ComplaintFroms() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/froms/getfroms");
-        setFroms(data);
-        setDuplicateFroms(data);
+        const gg = await axios.get(`${data.appUrl}/api/froms/getfroms`);
+        setFroms(gg.data);
+        setDuplicateFroms(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);

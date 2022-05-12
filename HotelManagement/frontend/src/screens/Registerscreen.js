@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import Success from "../components/Success";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Smooth } from "../context";
 
 const initial = {
   name: "",
@@ -15,7 +16,8 @@ const initial = {
 
 function Registerscreen() {
   const navigate = useNavigate();
-  const [data, setData] = useState(initial);
+  const {data} = useContext(Smooth);
+  const [datas, setData] = useState(initial);
 
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState();
@@ -29,10 +31,10 @@ function Registerscreen() {
     }));
   }
   async function register() {
-    if (data.password === data.cpassword) {
+    if (datas.password === datas.cpassword) {
       try {
         setloading((e) => !e);
-        await axios.post(`/api/users/register`, data);
+        await axios.post(`${data.appUrl}/api/users/register`, datas);
         setloading((e) => !e);
         setsuccess(true);
         setData(initial);
@@ -61,7 +63,7 @@ function Registerscreen() {
               className="form-control mb-3"
               placeholder="Name"
               name="name"
-              value={data.name}
+              value={datas.name}
               onChange={handleChange}
             />
             <input
@@ -69,7 +71,7 @@ function Registerscreen() {
               className="form-control mb-3"
               placeholder="Email"
               name="email"
-              value={data.email}
+              value={datas.email}
               onChange={handleChange}
             />
             <input
@@ -77,7 +79,7 @@ function Registerscreen() {
               className="form-control mb-3"
               placeholder="Password"
               name="password"
-              value={data.password}
+              value={datas.password}
               onChange={handleChange}
             />
             <input
@@ -85,7 +87,7 @@ function Registerscreen() {
               className="form-control mb-3"
               placeholder="Confirm Password"
               name="cpassword"
-              value={data.cpassword}
+              value={datas.cpassword}
               onChange={handleChange}
             />
 

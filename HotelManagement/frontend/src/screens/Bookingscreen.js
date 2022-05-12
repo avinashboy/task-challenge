@@ -26,7 +26,7 @@ function Bookingscreen() {
     }
     const getData = async () => {
       await axios
-        .get(`/api/rooms/getroombyid/${params.roomid}`)
+        .get(`${data.appUrl}/api/rooms/getroombyid/${params.roomid}`)
         .then((res) => {
           setloading(true);
           setroom(res.data);
@@ -54,8 +54,8 @@ function Bookingscreen() {
     };
     try {
       setloading(true);
-      const { data } = await axios.post(
-        `/api/bookings/bookroom`,
+      const gg = await axios.post(
+        `${data.appurl}/api/bookings/bookroom`,
         bookingDetails
       );
       setloading(false);

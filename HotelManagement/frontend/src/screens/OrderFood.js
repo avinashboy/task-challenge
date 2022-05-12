@@ -69,7 +69,7 @@ function OrderFood() {
   useEffect(() => {
     const getFoodList = async () => {
       try {
-        const res = await axios.get("/api/foods/getfoods");
+        const res = await axios.get(`${data.appUrl}/api/foods/getfoods`);
         setFoods(res.data);
         setduplicateFoods(res.data);
         setloading(false);

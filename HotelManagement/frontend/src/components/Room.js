@@ -25,7 +25,7 @@ function Room({ room, fromdate, todate }) {
       date: new Date(),
     };
     axios
-      .post(`/api/reviews/addreview`, newReview)
+      .post(`${data.appUrl}/api/reviews/addreview`, newReview)
       .then((res) => {
         Swal.fire({ title: "Success", text: "Review added successfully" });
         setCount((prev) => prev + 1);
@@ -40,7 +40,7 @@ function Room({ room, fromdate, todate }) {
 
   const handleDeleteReview = async (id) => {
     await axios
-      .delete(`/api/reviews/deletereview/${id}`)
+      .delete(`${data.appUrl}/api/reviews/deletereview/${id}`)
       .then((res) => {
         Swal.fire({ title: "Success", text: "Deleted successfully" });
         setCount((prev) => prev + 1);
@@ -56,7 +56,7 @@ function Room({ room, fromdate, todate }) {
   useEffect(() => {
     const getReviewById = async () => {
       const { data } = await axios.get(
-        `/api/reviews/getroomreviewbyid/${room._id}`
+        `${data.appUrl}/api/reviews/getroomreviewbyid/${room._id}`
       );
       setListReview(data);
     };

@@ -45,6 +45,7 @@ function Adminscreen() {
 export default Adminscreen;
 
 export function Bookings() {
+  const { data } = useContext(Smooth);
   const [bookings, setbookings] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, seterror] = useState();
@@ -52,8 +53,10 @@ export function Bookings() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/bookings/getallbookings");
-        setbookings(data);
+        const gg = await axios.get(
+          `${data.appUrl}/api/bookings/getallbookings`
+        );
+        setbookings(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);
@@ -111,6 +114,7 @@ export function Bookings() {
 }
 
 export function Rooms() {
+  const { data } = useContext(Smooth);
   const [rooms, setrooms] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, seterror] = useState();
@@ -119,8 +123,8 @@ export function Rooms() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/rooms/getallrooms");
-        setrooms(data);
+        const gg = await axios.get(`${data.appUrl}/api/rooms/getallrooms`);
+        setrooms(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);
@@ -132,7 +136,9 @@ export function Rooms() {
 
   const deleteRoom = async (id) => {
     try {
-      const { data } = await axios.delete(`/api/rooms/deleteroom/${id}`);
+      const gg = await axios.delete(
+        `${data.appUrl}/api/rooms/deleteroom/${id}`
+      );
       setCount((pre) => pre + 1);
       Swal.fire("Done", "Deteled Successfully", "success");
     } catch (error) {
@@ -175,7 +181,7 @@ export function Rooms() {
                         className="btn"
                         onClick={() => deleteRoom(room._id)}
                       >
-                         <i className="fa-solid fa-trash"></i>
+                        <i className="fa-solid fa-trash"></i>
                       </span>
                     </td>
                   </tr>
@@ -194,6 +200,7 @@ export function Rooms() {
 }
 
 export function Users() {
+  const { data } = useContext(Smooth);
   const [users, setusers] = useState([]);
   const [duplicateUsers, setDuplicateUsers] = useState([]);
   const [loading, setloading] = useState(true);
@@ -215,7 +222,7 @@ export function Users() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`/api/users/deleteuser/${id}`)
+      .delete(`${data.appUrl}/api/users/deleteuser/${id}`)
       .then((res) => {
         Swal.fire("Done", "Deleted Successfully", "success");
         setCount((pre) => pre + 1);
@@ -228,9 +235,9 @@ export function Users() {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get("/api/users/getallusers");
-        setusers(data);
-        setDuplicateUsers(data);
+        const gg = await axios.get(`${data.appUrl}/api/users/getallusers`);
+        setusers(gg.data);
+        setDuplicateUsers(gg.data);
         setloading(false);
       } catch (error) {
         setloading(false);
@@ -319,6 +326,7 @@ export function Users() {
 }
 
 export function Addroom() {
+  const { data } = useContext(Smooth);
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState();
@@ -333,8 +341,6 @@ export function Addroom() {
     imageurls: [],
   };
   const [roomInfo, setRoomInfo] = useState(initialValues);
-
-  
 
   //
   const [imgageurl1, setimageurl1] = useState("");
@@ -354,7 +360,10 @@ export function Addroom() {
   useEffect(() => {
     const addRommInfo = async () => {
       try {
-        const { data } = await await axios.post("/api/rooms/addroom", roomInfo);
+        const gg = await await axios.post(
+          `${data.appUrl}/api/rooms/addroom`,
+          roomInfo
+        );
         setloading(false);
         Swal.fire("Congrats", "Your New Room Added Successfully", "success");
         setRoomInfo(initialValues);
